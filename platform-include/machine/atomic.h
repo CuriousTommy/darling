@@ -44,6 +44,8 @@ enum memory_order {
 
 #if defined (__x86_64__) || defined (__i386__)
 #include "i386/atomic.h"
+#elif defined (__arm__) || defined (__arm64__)
+#include "arm/atomic.h"
 #else
 #error architecture not supported
 #endif
