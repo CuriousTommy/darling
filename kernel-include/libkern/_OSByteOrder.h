@@ -66,7 +66,9 @@
 #include <libkern/i386/_OSByteOrder.h>
 #endif
 
-
+#if defined (__arm__) || defined(__arm64__)
+#include <libkern/arm/OSByteOrder.h>
+#endif
 
 #define __DARWIN_OSSwapInt16(x) \
     ((__uint16_t)(__builtin_constant_p(x) ? __DARWIN_OSSwapConstInt16(x) : _OSSwapInt16(x)))
