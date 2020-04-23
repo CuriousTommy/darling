@@ -163,8 +163,8 @@ add_circular(system_c FAT OBJECTS
 	$<TARGET_OBJECTS:libc-uuid>
 	$<TARGET_OBJECTS:libc-util>
 	$<TARGET_OBJECTS:libc-string>
-	$<TARGET_OBJECTS:libc-string-x86_64>
-	$<TARGET_OBJECTS:libc-string-i386>
+	$<TARGET_OBJECTS:libc-string-64bit>
+	$<TARGET_OBJECTS:libc-string-32bit>
 	$<TARGET_OBJECTS:libc-stdtime>
 	$<TARGET_OBJECTS:libc-sys>
 	$<TARGET_OBJECTS:libc-sys_noinode64>

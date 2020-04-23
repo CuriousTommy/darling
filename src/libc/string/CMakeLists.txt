@@ -88,11 +88,19 @@ set(string_sources ${string_sources}
 SET_SOURCE_FILES_PROPERTIES(FreeBSD/strerror.c PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} -DLIBC_ALIAS_STRERROR")
 
 add_darling_object_library(libc-string ${string_sources})
-add_library(libc-string-x86_64 OBJECT ${string_x86_64_sources})
-set_target_properties(libc-string-x86_64 PROPERTIES COMPILE_FLAGS "-arch x86_64")
+if (TARGET_x86_64)
+	add_library(libc-string-64bit OBJECT ${string_x86_64_sources})
+	set_target_properties(libc-string-64bit PROPERTIES COMPILE_FLAGS "-arch x86_64")
+else ()
+	add_library(libc-string-64bit OBJECT empty.c)
+endif (TARGET_x86_64)
 
-add_library(libc-string-i386 OBJECT ${string_i386_sources})
-set_target_properties(libc-string-i386 PROPERTIES COMPILE_FLAGS "-arch i386")
+if (TARGET_i386)
+	add_library(libc-string-32bit OBJECT ${string_i386_sources})
+	set_target_properties(libc-string-32bit PROPERTIES COMPILE_FLAGS "-arch i386")
+else ()
+	add_library(libc-string-32bit OBJECT empty.c)
+endif (TARGET_i386)
 
 # Legacy variant
 if (TARGET_i386)
