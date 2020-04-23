@@ -26,6 +26,15 @@ set(string_x86_64_sources
 # i386 only, vice versa
 set(string_i386_sources
 	FreeBSD/strnlen.c)
+	
+set(string_arm64_sources
+	strlcat.c
+	strlcpy.c
+	strcpy.c
+	strncpy.c
+	FreeBSD/strlen.c
+	FreeBSD/strnlen.c
+)
 
 set(string_sources ${string_sources}
 	FreeBSD/index.c
@@ -91,6 +100,9 @@ add_darling_object_library(libc-string ${string_sources})
 if (TARGET_x86_64)
 	add_library(libc-string-64bit OBJECT ${string_x86_64_sources})
 	set_target_properties(libc-string-64bit PROPERTIES COMPILE_FLAGS "-arch x86_64")
+elseif (TARGET_ARM64)
+	add_library(libc-string-64bit OBJECT ${string_arm64_sources})
+	set_target_properties(libc-string-64bit PROPERTIES COMPILE_FLAGS "-arch arm64")
 else ()
 	add_library(libc-string-64bit OBJECT empty.c)
 endif (TARGET_x86_64)
