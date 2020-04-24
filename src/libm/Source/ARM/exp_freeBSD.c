@@ -157,3 +157,15 @@ exp(double x)	/* default IEEE double exp */
 	    return y*twom1000;
 	}
 }
+
+float expf(float x) {
+	return 0.0;
+}
+
+double frexp (double x, int *y) {
+	return 0.0;
+}
+
+double ldexp (double x, int y) {
+	return 0.0;
+}

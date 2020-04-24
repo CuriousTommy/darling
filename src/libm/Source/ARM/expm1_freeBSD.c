@@ -220,3 +220,7 @@ expm1(double x)
 	}
 	return y;
 }
+
+float expm1f (float x) {
+	return 0.0;
+}

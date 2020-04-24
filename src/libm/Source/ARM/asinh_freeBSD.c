@@ -55,3 +55,7 @@ asinh(double x)
 	}
 	if(hx>0) return w; else return -w;
 }
+
+float asinhf(float x) {
+	return 0.0;
+}
