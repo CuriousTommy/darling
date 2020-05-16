@@ -144,9 +144,9 @@ if (TARGET_i386)
 	target_link_libraries(system_loader libc_static32 compiler_rt_static32 platform_static32)
 endif (TARGET_i386)
 
-if (TARGET_x86_64)
+if (TARGET_x86_64 OR TARGET_ARM64)
 	target_link_libraries(system_loader libc_static64 compiler_rt_static64 platform_static64)
-endif (TARGET_x86_64)
+endif (TARGET_x86_64 OR TARGET_ARM64)
 
 make_fat(system_loader)
 
